@@ -23,7 +23,8 @@
       Variablerne bruges længere nede med var(--sun-size) og var(--car-w).
       Når siden virker: prøv at ændre værdierne. Hvad sker der?
    */
-
+   --sun-size: 100px;
+   --car-w: 200px;
 }
 
 /* ---------------------------------------------------------
@@ -48,14 +49,25 @@
      - background: en linear-gradient med de tre himmelfarver:
          var(--color-sky-top), var(--color-sky-mid), var(--color-sky-bot)
 */
-
+.scene {
+   position: relative;
+   height: 100vh;
+   overflow: hidden;
+   background: linear-gradient(
+               var(--color-sky-top), 
+               var(--color-sky-mid), 
+               var(--color-sky-bot)
+   );
+}
 
 
 /* Skriv selv: nat-tilstand
    JavaScript tilføjer klassen "night" til .scene, når man klikker på solen.
    Skriv en regel for .scene.night, der sætter background til var(--color-night).
 */
-
+.scene.night {
+   background: var(--color-night);
+}
 
 
 /* ---------------------------------------------------------
@@ -156,6 +168,11 @@
    animation: car2 12s linear infinite;
 }
 
+@keyframes car2 {
+   0%   { transform: translateX(0) rotateY(180deg); }
+   100% { transform: translateX(-130vw) rotateY(180deg); }
+}
+
 /* Skriv selv: @keyframes car2
    Brug car1 ovenfor som skabelon. Politibilen kører bare den modsatte vej.
 
@@ -179,6 +196,10 @@
    bottom: -3.4vh;
    left: -30vw; /* starter 30vw uden for skærmen til venstre */
    animation: car3 8s linear infinite;
+}
+@keyframes car3 {
+   0%   { transform: translateX(0) rotateY(180deg); }
+   100% { transform: translateX(130vw) rotateY(180deg); }
 }
 
 /* Skriv selv: @keyframes car3
@@ -223,7 +244,10 @@
      - opacity til 1
      - transform til translateY(0)
 */
-
+.tooltip.is-visible {
+   opacity: 1;
+   transform: translateY(0);
+}
 
 
 

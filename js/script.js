@@ -1,3 +1,4 @@
+"use strict";
 // Husk fra dag 1: skriv "use strict" herunder
 
 
@@ -22,14 +23,25 @@ const cars = [
         sound: "sound/red-car-horn.wav"
     },
 
-    // Skriv selv: et objekt for politibilen med samme nøgler som ovenfor.
-    //   id: "policeCar", brand: "Volvo", model: "242", year: 1982,
-    //   color: "Politibil", fuel: "Diesel", sound: "sound/police-car-sound.wav"
+    { 
+      id: "policeCar",
+      brand: "Volvo",
+      model: "242",
+      year: 1982,
+      color: "blå og hvid",
+      fuel: "Diesel",
+      sound: "sound/police-car-sound.wav"
+    },
 
-    // Skriv selv: et objekt for den blå bil.
-    //   id: "blueCar", brand: "Volkswagen", model: "Passat", year: 1979,
-    //   color: "Lyseblå", fuel: "Diesel", sound: "sound/blue-car-sound.wav"
-
+    { 
+      id: "blueCar",
+      brand: "Volkswagen",
+      model: "Passat",
+      year: 1979,
+      color: "Lyseblå",
+      fuel: "Diesel",
+      sound: "sound/blue-car-sound.wav"
+    },
     // Husk komma mellem objekterne!
 ];
 
@@ -48,7 +60,9 @@ console.log(cars[0].brand);
 // Du skulle gerne se tre linjer i konsollen: Ford, Volvo og Volkswagen.
 //
 // Ekstra: skriv også model og årgang ud på samme linje.
-
+cars.forEach(function(carObj) {
+   console.log(`${carObj.brand} ${carObj.model} ${carObj.year}`);
+});
 
 
 /* ---------------------------------------------------------
@@ -59,6 +73,9 @@ console.log(cars[0].brand);
 const getTooltip = document.getElementById("tooltip");
 
 // Skriv selv: hent solen og scenen på samme måde, ved hjælp af deres id.
+const getSun = document.getElementById("sun");
+const getScene = document.getElementById("scene");
+
 // Variablerne skal hedde getSun og getScene.
 //
 // Husk: class bruges til CSS (udseende), id bruges til JavaScript.
