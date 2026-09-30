@@ -61,7 +61,7 @@ console.log(cars[0].brand);
 //
 // Ekstra: skriv også model og årgang ud på samme linje.
 cars.forEach(function(carObj) {
-   console.log(`${carObj.brand} ${carObj.model} ${carObj.year}`);
+   console.log(`${carObj.brand} ${carObj.model}`);
 });
 
 
@@ -91,7 +91,9 @@ const getScene = document.getElementById("scene");
 // Nyt i dag: getScene.classList.toggle("night") tilføjer klassen "night", hvis den mangler,
 // og fjerner den, hvis den er der. Det er samme idé som din if/else i billedskift-opgaven,
 // men toggle klarer det på én linje. Selve udseendet står i CSS'en under .scene.night.
-
+getSun.addEventListener("click", function(){
+   getScene.classList.toggle("night");
+} );
 
 
 /* ---------------------------------------------------------
@@ -112,6 +114,8 @@ function showTooltip(car) {
     getTooltip.innerHTML = `
         <strong>${car.brand} ${car.model}</strong><br>
         Årgang: ${car.year}<br>
+        farve: ${car.color}<br>
+        brændstof: ${car.fuel}
     `;
     // Skriv selv: tilføj to linjer mere inde i backticks ovenfor: farve (car.color) og brændstof (car.fuel).
 
@@ -127,7 +131,9 @@ function showTooltip(car) {
 
 // Skriv selv en funktion, der hedder hideTooltip.
 // Den skal fjerne klassen "is-visible" fra getTooltip. Brug classList.remove - det modsatte af classList.add.
-
+function hideTooltip() {
+      getTooltip.classList.remove("is-visible");
+}
 
 
 // Skriv selv en funktion, der hedder playSound, og som tager imod parameteren car.
@@ -143,7 +149,10 @@ function showTooltip(car) {
 //
 // OBS: play er en metode, der følger med Audio. Kald den ikke playSound -
 // playSound er navnet på din egen funktion.
-
+function playSound(car) {
+    const audio = new Audio(car.sound);
+    audio.play();
+}
 
 
 /* ---------------------------------------------------------
@@ -165,6 +174,12 @@ cars.forEach(function(car) {
     });
 
     // Skriv selv: lyt efter "click" på getCarElem og kald playSound(car) inde i en anonym function.
+      getCarElem.addEventListener("click", function(){
+         playSound(car);
+      } );
+
+
+
 
 });
 
